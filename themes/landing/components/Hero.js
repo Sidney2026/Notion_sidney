@@ -1,5 +1,4 @@
 import CONFIG from '../config'
-import ModalVideo from './ModalVideo'
 import { siteConfig } from '@/lib/config'
 
 export default function Hero() {
@@ -37,14 +36,14 @@ export default function Hero() {
                             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8" data-aos="zoom-y-out" data-aos-delay="150">{siteConfig('LANDING_HERO_P_1', null, CONFIG)}</p>
                             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                                 <div>
-                                    <a target='_blank' className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                                        href={siteConfig('LANDING_HERO_BUTTON_1_LINK', null, CONFIG)} rel="noreferrer">
+                                    <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
+                                        href={siteConfig('LANDING_HERO_BUTTON_1_LINK', null, CONFIG)}>
                                         {siteConfig('LANDING_HERO_BUTTON_1_TEXT', null, CONFIG)}
                                     </a>
                                 </div>
                                 <div>
-                                    <a target='_blank' className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
-                                        href={siteConfig('LANDING_HERO_BUTTON_2_LINK', null, CONFIG)} rel="noreferrer">
+                                    <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
+                                        href={siteConfig('LANDING_HERO_BUTTON_2_LINK', null, CONFIG)}>
                                         {siteConfig('LANDING_HERO_BUTTON_2_TEXT', null, CONFIG)}
                                     </a>
                                 </div>
@@ -52,15 +51,21 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Hero image */}
-                    <ModalVideo
-                        thumb={siteConfig('LANDING_HERO_VIDEO_IMAGE', null, CONFIG)}
-                        thumbWidth={768}
-                        thumbHeight={432}
-                        thumbAlt={siteConfig('HERO_HEADER_1', null, CONFIG)}
-                        video={siteConfig('HERO_VIDEO_URL', null, CONFIG)}
-                        videoWidth={1920}
-                        videoHeight={1080} />
+                    {/* 信任条：三格信任锚点（原模板的演示视频位已移除） */}
+                    <div className="max-w-3xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center" data-aos="zoom-y-out">
+                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
+                            <div className="text-xs text-gray-500 mb-1">开箱即有</div>
+                            <div className="font-bold text-gray-900 dark:text-white">港险 7 大能力</div>
+                        </div>
+                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
+                            <div className="text-xs text-gray-500 mb-1">越用越懂你</div>
+                            <div className="font-bold text-blue-600">会自己进化</div>
+                        </div>
+                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
+                            <div className="text-xs text-gray-500 mb-1">不导出、不共享</div>
+                            <div className="font-bold text-gray-900 dark:text-white">数据只在你账号</div>
+                        </div>
+                    </div>
 
                 </div>
 
