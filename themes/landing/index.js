@@ -19,8 +19,10 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Newsletter from './components/Newsletter'
 import { Pricing } from './components/Pricing'
-import Testimonials from './components/Testimonials'
 import CONFIG from './config'
+// import Testimonials from './components/Testimonials'
+// ⬆️ 案例/评价位暂时关闭：等 May 团队授权 + 有前后数据后再开启
+//    （原模板这里是「客户评价」，与本产品无关的背书不放产品页）
 
 /**
  * 布局框架
@@ -59,7 +61,7 @@ const LayoutIndex = props => {
       <Hero />
       <Features />
       <FeaturesBlocks />
-      <Testimonials />
+      {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
       <Pricing />
       <Newsletter />
     </>
