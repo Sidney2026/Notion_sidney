@@ -27,8 +27,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Site branding */}
-          <div className="shrink-0 mr-4">
+          <div className="shrink-0 mr-4 flex items-center gap-2">
             <Logo />
+            <SmartLink href="/" className="font-bold text-gray-900 dark:text-white tracking-tight">
+              {siteConfig('LANDING_BRAND_NAME', '港险 AI 助手', CONFIG)}
+            </SmartLink>
           </div>
 
           {/* Desktop navigation */}
