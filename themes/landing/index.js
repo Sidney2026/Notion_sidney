@@ -19,6 +19,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Newsletter from './components/Newsletter'
 import { Pricing } from './components/Pricing'
+import PricingTable from './components/PricingTable'
 import CONFIG from './config'
 // import Testimonials from './components/Testimonials'
 // ⬆️ 案例/评价位暂时关闭：等 May 团队授权 + 有前后数据后再开启
@@ -63,6 +64,7 @@ const LayoutIndex = props => {
       <FeaturesBlocks />
       {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
       <Pricing />
+      <PricingTable />
       <Newsletter />
     </>
   )
