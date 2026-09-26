@@ -62,7 +62,7 @@ export default function Footer () {
 
         <div className='md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200'>
           <div className='text-sm text-gray-600 mr-4'>
-            &copy; {siteConfig('SINCE', '2026')} {siteConfig('AUTHOR', 'Sidney')} · {siteConfig('LANDING_BRAND_NAME', '成交教练', CONFIG)}
+            &copy; {siteConfig('SINCE', '2026')} {siteConfig('AUTHOR', 'Sidney')} · {siteConfig('LANDING_BRAND_NAME', '成交陪跑教练', CONFIG)}
           </div>
           <div className='text-sm text-gray-400 mt-2 md:mt-0'>{hours}</div>
         </div>

@@ -34,6 +34,11 @@ export default function PricingTable () {
     siteConfig('LANDING_PRICING_2_PRICE', '', CONFIG),
     siteConfig('LANDING_PRICING_3_PRICE', '', CONFIG)
   ]
+  const pricesOld = [
+    siteConfig('LANDING_PRICING_1_PRICE_OLD', '', CONFIG),
+    siteConfig('LANDING_PRICING_2_PRICE_OLD', '', CONFIG),
+    siteConfig('LANDING_PRICING_3_PRICE_OLD', '', CONFIG)
+  ]
 
   const Cell = ({ value, highlight }) => {
     if (value === '—' || value === '-' || !value) {
@@ -64,7 +69,8 @@ export default function PricingTable () {
                   key={i}
                   className={`px-4 py-4 text-center border-b border-gray-200 dark:border-gray-800 ${i === 1 ? 'bg-blue-50 dark:bg-gray-800' : ''}`}>
                   <div className='font-bold text-gray-900 dark:text-white'>{t}</div>
-                  {prices[i] && <div className='text-xs text-gray-500 mt-1 font-normal'>{prices[i]}</div>}
+                  {pricesOld[i] && <div className='text-xs text-gray-400 line-through mt-1 font-normal'>原价 {pricesOld[i]}</div>}
+                  {prices[i] && <div className={`text-xs mt-0.5 font-semibold ${i === 1 ? 'text-blue-700 dark:text-blue-400' : 'text-gray-600 dark:text-gray-400'}`}>{prices[i]}</div>}
                 </th>
               ))}
             </tr>

@@ -1,7 +1,32 @@
 import CONFIG from '../config'
 import { siteConfig } from '@/lib/config'
 
+/**
+ * 首屏
+ * 结构（按「勾住 → 加深 → 说服」的顺序）：
+ *   ① 标签：一句话说清是什么、住在哪
+ *   ② 主标题：结果导向，勾住人往下看
+ *   ③ 副标题：加深印象 + 点出与通用 AI 的差距
+ *   ④ 活动条：把「现在有活动」摆在首屏
+ *   ⑤ 四格：与通用 AI 的差别（说服，结果论）
+ * ⚠️ 首屏不放任何按钮 —— 转化入口在右上角导航与页脚，首屏的位置只用来吸引。
+ */
 export default function Hero() {
+  // 注意：siteConfig 内部会调用 hook，必须显式展开、不能写在循环里
+  const vs = [
+    { t: siteConfig('LANDING_HERO_VS_1_TITLE', null, CONFIG), p: siteConfig('LANDING_HERO_VS_1_P', null, CONFIG) },
+    { t: siteConfig('LANDING_HERO_VS_2_TITLE', null, CONFIG), p: siteConfig('LANDING_HERO_VS_2_P', null, CONFIG) },
+    { t: siteConfig('LANDING_HERO_VS_3_TITLE', null, CONFIG), p: siteConfig('LANDING_HERO_VS_3_P', null, CONFIG) },
+    { t: siteConfig('LANDING_HERO_VS_4_TITLE', null, CONFIG), p: siteConfig('LANDING_HERO_VS_4_P', null, CONFIG) }
+  ].filter(c => c.t)
+
+  const tag = siteConfig('LANDING_HERO_TAG', null, CONFIG)
+  const offerTag = siteConfig('LANDING_HERO_OFFER_TAG', null, CONFIG)
+  const offerMain = siteConfig('LANDING_HERO_OFFER_MAIN', null, CONFIG)
+  const offerOld = siteConfig('LANDING_HERO_OFFER_OLD', null, CONFIG)
+  const offerNote = siteConfig('LANDING_HERO_OFFER_NOTE', null, CONFIG)
+  const vsTitle = siteConfig('LANDING_HERO_VS_TITLE', null, CONFIG)
+
   return (
         <section className="relative">
 
@@ -25,50 +50,57 @@ export default function Hero() {
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
                 {/* Hero content */}
-                <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+                <div className="pt-28 pb-12 md:pt-36 md:pb-16">
 
-                    {/* Section header */}
-                    <div className="text-center pb-12 md:pb-16">
-                        <div className="inline-block mb-5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide text-blue-700 bg-blue-50 border border-blue-100" data-aos="zoom-y-out">
-                            港险专属 · 住在飞书里的成交陪跑教练
-                        </div>
-                        <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
+                    {/* ① 标签 ② 主标题 ③ 副标题 */}
+                    <div className="text-center pb-8 md:pb-10">
+                        {tag && (
+                            <div className="inline-block mb-5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide text-blue-700 bg-blue-50 border border-blue-100" data-aos="zoom-y-out">
+                                {tag}
+                            </div>
+                        )}
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-5" data-aos="zoom-y-out">
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">{siteConfig('LANDING_HERO_TITLE_1', null, CONFIG)}</span>
                         </h1>
                         <div className="max-w-3xl mx-auto">
-                            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8" data-aos="zoom-y-out" data-aos-delay="150">{siteConfig('LANDING_HERO_P_1', null, CONFIG)}</p>
-                            <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
-                                <div>
-                                    <a className="btn text-white bg-blue-600 hover:bg-blue-700 w-full mb-4 sm:w-auto sm:mb-0"
-                                        href={siteConfig('LANDING_HERO_BUTTON_1_LINK', null, CONFIG)}>
-                                        {siteConfig('LANDING_HERO_BUTTON_1_TEXT', null, CONFIG)}
-                                    </a>
-                                </div>
-                                <div>
-                                    <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4"
-                                        href={siteConfig('LANDING_HERO_BUTTON_2_LINK', null, CONFIG)}>
-                                        {siteConfig('LANDING_HERO_BUTTON_2_TEXT', null, CONFIG)}
-                                    </a>
-                                </div>
-                            </div>
+                            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400" data-aos="zoom-y-out" data-aos-delay="150">{siteConfig('LANDING_HERO_P_1', null, CONFIG)}</p>
                         </div>
                     </div>
 
-                    {/* 信任条：三格信任锚点（原模板的演示视频位已移除） */}
-                    <div className="max-w-3xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center" data-aos="zoom-y-out">
-                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
-                            <div className="text-xs text-gray-500 mb-1">开箱即有</div>
-                            <div className="font-bold text-gray-900 dark:text-white">答疑 · 话术 · 引导</div>
+                    {/* ④ 活动条：把「现在有活动」放在首屏，不占按钮位 */}
+                    {(offerMain || offerTag) && (
+                        <div className="max-w-3xl mx-auto mb-10" data-aos="zoom-y-out" data-aos-delay="250">
+                            <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-5 py-4 text-center">
+                                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                                    {offerTag && (
+                                        <span className="inline-block text-xs font-bold text-white bg-red-500 rounded-md px-2.5 py-1 tracking-wide">{offerTag}</span>
+                                    )}
+                                    {offerMain && <span className="text-xl sm:text-2xl font-extrabold text-gray-900">{offerMain}</span>}
+                                    {offerOld && <span className="text-base text-gray-400 line-through font-semibold">{offerOld}</span>}
+                                </div>
+                                {offerNote && <div className="text-sm text-gray-600 mt-2">{offerNote}</div>}
+                            </div>
                         </div>
-                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
-                            <div className="text-xs text-gray-500 mb-1">越用越懂你</div>
-                            <div className="font-bold text-blue-600">会自己进化</div>
+                    )}
+
+                    {/* ⑤ 与通用 AI 的差别（说服） */}
+                    {vs.length > 0 && (
+                        <div className="max-w-4xl mx-auto" data-aos="zoom-y-out" data-aos-delay="350">
+                            {vsTitle && (
+                                <div className="text-center mb-5">
+                                    <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">{vsTitle}</h2>
+                                </div>
+                            )}
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                {vs.map((c, i) => (
+                                    <div key={i} className="bg-white/80 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm text-left">
+                                        <div className="font-bold text-gray-900 dark:text-white mb-1.5 leading-snug">{c.t}</div>
+                                        <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{c.p}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
-                            <div className="text-xs text-gray-500 mb-1">不导出、不共享</div>
-                            <div className="font-bold text-gray-900 dark:text-white">数据只在你账号</div>
-                        </div>
-                    </div>
+                    )}
 
                 </div>
 

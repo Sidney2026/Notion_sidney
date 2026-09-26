@@ -30,7 +30,7 @@ export default function Header() {
           <div className="shrink-0 mr-4 flex items-center gap-2">
             <Logo />
             <SmartLink href="/" className="font-bold text-gray-900 dark:text-white tracking-tight">
-              {siteConfig('LANDING_BRAND_NAME', '港险 AI 助手', CONFIG)}
+              {siteConfig('LANDING_BRAND_NAME', '成交陪跑教练', CONFIG)}
             </SmartLink>
           </div>
 

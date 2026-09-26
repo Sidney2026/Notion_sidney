@@ -10,7 +10,21 @@ import SmartLink from '@/components/SmartLink'
 // 老配置仍用逗号，保持向后兼容。
 const items = (raw) => (raw || '').split(raw && raw.includes('|') ? '|' : ',')
 
+// 单个档位的价格块：限时标签 + 原价（划线）+ 活动价
+const PriceBlock = ({ price, old, badge, big }) => (
+  <div className="text-center mb-5">
+    {badge && (
+      <div className="mb-2">
+        <span className="inline-block text-xs font-bold text-white bg-red-500 rounded-md px-2.5 py-1 tracking-wide">{badge}</span>
+      </div>
+    )}
+    {old && <div className="text-sm text-gray-400 line-through font-semibold">原价 {old}</div>}
+    <h3 className={`font-bold ${big ? 'text-4xl md:text-5xl' : 'text-4xl'}`}>{price}</h3>
+  </div>
+)
+
 export const Pricing = (props) => {
+  const badge = siteConfig('LANDING_PRICING_BADGE', null, CONFIG)
   return <div id="pricing" className="w-full mx-auto bg-white dark:bg-black px-5 py-10 text-gray-800 mb-10">
     <div className="text-center max-w-xl mx-auto">
         <h1 className="text-5xl md:text-5xl font-bold mb-5 dark:text-white">{siteConfig('LANDING_PRICING_TITLE', null, CONFIG)}</h1>
@@ -20,7 +34,10 @@ export const Pricing = (props) => {
         <div className="w-full md:w-1/3 md:max-w-none bg-white dark:bg-hexo-black-gray px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:my-6 rounded-md shadow-lg shadow-gray-600 md:flex md:flex-col">
             <div className="w-full flex-grow dark:text-gray-400">
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_1_TITLE', null, CONFIG)}</h2>
-                <h3 className="text-center font-bold text-4xl mb-5">{siteConfig('LANDING_PRICING_1_PRICE', null, CONFIG)}</h3>
+                <PriceBlock
+                  price={siteConfig('LANDING_PRICING_1_PRICE', null, CONFIG)}
+                  old={siteConfig('LANDING_PRICING_1_PRICE_OLD', null, CONFIG)}
+                  badge={badge} />
                 <ul className="text-sm px-5 mb-8">
                     {items(siteConfig('LANDING_PRICING_1_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
@@ -33,7 +50,10 @@ export const Pricing = (props) => {
         <div className="w-full md:w-1/3 md:max-w-none bg-white dark:bg-hexo-black-gray px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:-mx-3 md:mb-0 rounded-md shadow-lg shadow-gray-600 md:relative md:z-20 md:flex md:flex-col">
             <div className="w-full flex-grow dark:text-gray-400">
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_2_TITLE', null, CONFIG)}</h2>
-                <h3 className="text-center font-bold text-4xl md:text-5xl mb-5">{siteConfig('LANDING_PRICING_2_PRICE', null, CONFIG)}</h3>
+                <PriceBlock
+                  price={siteConfig('LANDING_PRICING_2_PRICE', null, CONFIG)}
+                  old={siteConfig('LANDING_PRICING_2_PRICE_OLD', null, CONFIG)}
+                  badge={badge} big />
                 <ul className="text-sm px-5 mb-8">
                     {items(siteConfig('LANDING_PRICING_2_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
@@ -46,7 +66,10 @@ export const Pricing = (props) => {
         <div className="w-full md:w-1/3 md:max-w-none bg-white dark:bg-hexo-black-gray px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:my-6 rounded-md shadow-lg shadow-gray-600 md:flex md:flex-col">
             <div className="w-full flex-grow dark:text-gray-400">
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_3_TITLE', null, CONFIG)}</h2>
-                <h3 className="text-center font-bold text-4xl mb-5">{siteConfig('LANDING_PRICING_3_PRICE', null, CONFIG)}</h3>
+                <PriceBlock
+                  price={siteConfig('LANDING_PRICING_3_PRICE', null, CONFIG)}
+                  old={siteConfig('LANDING_PRICING_3_PRICE_OLD', null, CONFIG)}
+                  badge={badge} />
                 <ul className="text-sm px-5 mb-8">
                     {items(siteConfig('LANDING_PRICING_3_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
