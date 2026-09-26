@@ -3,13 +3,17 @@ import { siteConfig } from '@/lib/config'
 
 /**
  * 首屏
- * 结构（按「勾住 → 加深 → 说服」的顺序）：
+ * 结构（按「想要 → 相信 → 行动」三层排）：
  *   ① 标签：一句话说清是什么、住在哪
- *   ② 主标题：结果导向，勾住人往下看
- *   ③ 副标题：加深印象 + 点出与通用 AI 的差距
- *   ④ 活动条：把「现在有活动」摆在首屏
- *   ⑤ 四格：与通用 AI 的差别（说服，结果论）
- * ⚠️ 首屏不放任何按钮 —— 转化入口在右上角导航与页脚，首屏的位置只用来吸引。
+ *   ② 主标题：结果导向，勾住人往下看                     ← 想要
+ *   ③ 副标题：加深印象 + 点出与通用 AI 的差距              ← 想要
+ *   ④ 四格：与通用 AI 的差别（结果论）                    ← 相信
+ *   ⑤ 活动条：价值讲完之后才报价，作为首屏收尾             ← 行动
+ *
+ * ⚠️ 顺序原则：**行动层（价格 / 活动）必须排在相信层之后。**
+ *    价格若出现在「凭什么值」之前，读者会拿它去比「免费的通用 AI」，
+ *    而不是比「一个记得住他所有客户的成交陪跑教练」—— 锚点就错了。
+ * ⚠️ 首屏不放任何按钮 —— 转化入口在右上角导航与页脚，首屏的位置只用来吸引与说服。
  */
 export default function Hero() {
   // 注意：siteConfig 内部会调用 hook，必须显式展开、不能写在循环里
@@ -67,25 +71,9 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* ④ 活动条：把「现在有活动」放在首屏，不占按钮位 */}
-                    {(offerMain || offerTag) && (
-                        <div className="max-w-3xl mx-auto mb-10" data-aos="zoom-y-out" data-aos-delay="250">
-                            <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-5 py-4 text-center">
-                                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-                                    {offerTag && (
-                                        <span className="inline-block text-xs font-bold text-white bg-red-500 rounded-md px-2.5 py-1 tracking-wide">{offerTag}</span>
-                                    )}
-                                    {offerMain && <span className="text-xl sm:text-2xl font-extrabold text-gray-900">{offerMain}</span>}
-                                    {offerOld && <span className="text-base text-gray-400 line-through font-semibold">{offerOld}</span>}
-                                </div>
-                                {offerNote && <div className="text-sm text-gray-600 mt-2">{offerNote}</div>}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* ⑤ 与通用 AI 的差别（说服） */}
+                    {/* ④ 与通用 AI 的差别（相信层：先把「凭什么值」讲完） */}
                     {vs.length > 0 && (
-                        <div className="max-w-4xl mx-auto" data-aos="zoom-y-out" data-aos-delay="350">
+                        <div className="max-w-4xl mx-auto" data-aos="zoom-y-out" data-aos-delay="250">
                             {vsTitle && (
                                 <div className="text-center mb-5">
                                     <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">{vsTitle}</h2>
@@ -98,6 +86,22 @@ export default function Hero() {
                                         <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{c.p}</div>
                                     </div>
                                 ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* ⑤ 活动条（行动层：价值讲完之后才报价，作为首屏的收尾） */}
+                    {(offerMain || offerTag) && (
+                        <div className="max-w-3xl mx-auto mt-10" data-aos="zoom-y-out" data-aos-delay="350">
+                            <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-5 py-4 text-center">
+                                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                                    {offerTag && (
+                                        <span className="inline-block text-xs font-bold text-white bg-red-500 rounded-md px-2.5 py-1 tracking-wide">{offerTag}</span>
+                                    )}
+                                    {offerMain && <span className="text-xl sm:text-2xl font-extrabold text-gray-900">{offerMain}</span>}
+                                    {offerOld && <span className="text-base text-gray-400 line-through font-semibold">{offerOld}</span>}
+                                </div>
+                                {offerNote && <div className="text-sm text-gray-600 mt-2">{offerNote}</div>}
                             </div>
                         </div>
                     )}
