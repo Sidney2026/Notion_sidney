@@ -42,15 +42,29 @@ export default function Features () {
           </div>
         )}
 
-        {/* 能力网格 */}
-        <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'>
-          {cards.map((c, i) => (
-            <div key={i} className='bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm'>
-              <div className='font-bold text-gray-900 dark:text-white mb-2 leading-snug'>{c.t}</div>
-              <div className='text-sm text-gray-600 dark:text-gray-400 leading-relaxed'>{c.p}</div>
-            </div>
-          ))}
-        </div>
+        {/* 核心三件套：答疑 · 话术 · 引导（决定成交的三件事，层级最高） */}
+        {cards.length > 0 && (
+          <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-4 mb-4'>
+            {cards.slice(0, 3).map((c, i) => (
+              <div key={i} className='bg-white dark:bg-gray-900 rounded-lg border-2 border-blue-200 dark:border-blue-900 p-6 shadow-sm'>
+                <div className='font-bold text-lg text-gray-900 dark:text-white mb-2 leading-snug'>{c.t}</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400 leading-relaxed'>{c.p}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* 其余能力：日常必备 */}
+        {cards.length > 3 && (
+          <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+            {cards.slice(3).map((c, i) => (
+              <div key={i} className='bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm'>
+                <div className='font-bold text-gray-900 dark:text-white mb-2 leading-snug'>{c.t}</div>
+                <div className='text-sm text-gray-600 dark:text-gray-400 leading-relaxed'>{c.p}</div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* 通用能力补充条 */}
         {(header2 || header2p) && (

@@ -29,6 +29,9 @@ export default function Hero() {
 
                     {/* Section header */}
                     <div className="text-center pb-12 md:pb-16">
+                        <div className="inline-block mb-5 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide text-blue-700 bg-blue-50 border border-blue-100" data-aos="zoom-y-out">
+                            港险专属 · 住在飞书里的成交陪跑教练
+                        </div>
                         <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">{siteConfig('LANDING_HERO_TITLE_1', null, CONFIG)}</span>
                         </h1>
@@ -55,7 +58,7 @@ export default function Hero() {
                     <div className="max-w-3xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center" data-aos="zoom-y-out">
                         <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
                             <div className="text-xs text-gray-500 mb-1">开箱即有</div>
-                            <div className="font-bold text-gray-900 dark:text-white">港险 7 大能力</div>
+                            <div className="font-bold text-gray-900 dark:text-white">答疑 · 话术 · 引导</div>
                         </div>
                         <div className="rounded-lg border border-gray-200 dark:border-gray-800 py-4 px-3">
                             <div className="text-xs text-gray-500 mb-1">越用越懂你</div>

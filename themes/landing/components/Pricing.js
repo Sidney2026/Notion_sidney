@@ -5,6 +5,11 @@ import SmartLink from '@/components/SmartLink'
 /**
  * 价格收费表
  */
+
+// 卡片条目分隔符：优先用 |（这样价格里可以写千分位逗号 ¥2,980），
+// 老配置仍用逗号，保持向后兼容。
+const items = (raw) => (raw || '').split(raw && raw.includes('|') ? '|' : ',')
+
 export const Pricing = (props) => {
   return <div id="pricing" className="w-full mx-auto bg-white dark:bg-black px-5 py-10 text-gray-800 mb-10">
     <div className="text-center max-w-xl mx-auto">
@@ -17,7 +22,7 @@ export const Pricing = (props) => {
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_1_TITLE', null, CONFIG)}</h2>
                 <h3 className="text-center font-bold text-4xl mb-5">{siteConfig('LANDING_PRICING_1_PRICE', null, CONFIG)}</h3>
                 <ul className="text-sm px-5 mb-8">
-                    {siteConfig('LANDING_PRICING_1_CONTENT', null, CONFIG)?.split(',').map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
+                    {items(siteConfig('LANDING_PRICING_1_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
                 </ul>
             </div>
@@ -30,7 +35,7 @@ export const Pricing = (props) => {
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_2_TITLE', null, CONFIG)}</h2>
                 <h3 className="text-center font-bold text-4xl md:text-5xl mb-5">{siteConfig('LANDING_PRICING_2_PRICE', null, CONFIG)}</h3>
                 <ul className="text-sm px-5 mb-8">
-                    {siteConfig('LANDING_PRICING_2_CONTENT', null, CONFIG)?.split(',').map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
+                    {items(siteConfig('LANDING_PRICING_2_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
                 </ul>
             </div>
@@ -43,7 +48,7 @@ export const Pricing = (props) => {
                 <h2 className="text-center font-bold uppercase mb-4">{siteConfig('LANDING_PRICING_3_TITLE', null, CONFIG)}</h2>
                 <h3 className="text-center font-bold text-4xl mb-5">{siteConfig('LANDING_PRICING_3_PRICE', null, CONFIG)}</h3>
                 <ul className="text-sm px-5 mb-8">
-                    {siteConfig('LANDING_PRICING_3_CONTENT', null, CONFIG)?.split(',').map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
+                    {items(siteConfig('LANDING_PRICING_3_CONTENT', null, CONFIG)).map((item, index) => <li key={index} className="leading-tight"><i className="mdi-check-bold text-lg"></i>{item}</li>
                     )}
                 </ul>
             </div>
