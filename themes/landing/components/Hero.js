@@ -25,10 +25,6 @@ export default function Hero() {
   ].filter(c => c.t)
 
   const tag = siteConfig('LANDING_HERO_TAG', null, CONFIG)
-  const offerTag = siteConfig('LANDING_HERO_OFFER_TAG', null, CONFIG)
-  const offerMain = siteConfig('LANDING_HERO_OFFER_MAIN', null, CONFIG)
-  const offerOld = siteConfig('LANDING_HERO_OFFER_OLD', null, CONFIG)
-  const offerNote = siteConfig('LANDING_HERO_OFFER_NOTE', null, CONFIG)
   const vsTitle = siteConfig('LANDING_HERO_VS_TITLE', null, CONFIG)
 
   return (
@@ -90,21 +86,11 @@ export default function Hero() {
                         </div>
                     )}
 
-                    {/* ⑤ 活动条（行动层：价值讲完之后才报价，作为首屏的收尾） */}
-                    {(offerMain || offerTag) && (
-                        <div className="max-w-3xl mx-auto mt-10" data-aos="zoom-y-out" data-aos-delay="350">
-                            <div className="rounded-xl border-2 border-amber-300 bg-amber-50 px-5 py-4 text-center">
-                                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-                                    {offerTag && (
-                                        <span className="inline-block text-xs font-bold text-white bg-red-500 rounded-md px-2.5 py-1 tracking-wide">{offerTag}</span>
-                                    )}
-                                    {offerMain && <span className="text-xl sm:text-2xl font-extrabold text-gray-900">{offerMain}</span>}
-                                    {offerOld && <span className="text-base text-gray-400 line-through font-semibold">{offerOld}</span>}
-                                </div>
-                                {offerNote && <div className="text-sm text-gray-600 mt-2">{offerNote}</div>}
-                            </div>
-                        </div>
-                    )}
+                    {/* 活动条：已移除（2026-09-26）
+                        原因：活动信息在「四件事」第 6 卡、价格区标签、卡片划线原价、对比表表头
+                        等多处已出现，首屏再放一次属于重复。
+                        首屏只负责「想要 → 相信」，行动层信息交给价格区。
+                        需要的配置键仍在（LANDING_HERO_OFFER_*），要恢复只需把这一段接回来。 */}
 
                 </div>
 
