@@ -5,75 +5,100 @@ import CONFIG from '../config'
 import { siteConfig } from '@/lib/config'
 
 /**
- * 能力介绍
- * 原模板是「左侧 3 个 tab + 右侧配图」，但配图（/images/feature-*.webp）不存在，
- * 右侧永远是空白（这就是「右边闲置」的原因）。
- * 已改为 8 张能力卡的网格布局，对应产品说明书里的 8 项能力。
+ * 产品能力介绍：分两块
+ * 块一 推进客户成交的技能（LANDING_FEATURES_CARD_1~6）
+ * 块二 做内容的技能（LANDING_CONTENT_CARD_1~6）
  */
-export default function Features () {
-  // 注意：siteConfig 内部会调用 hook，必须显式展开、不能写在循环里
-  const cards = [
+const CARD_CLS =
+  'bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm'
+const CARD_TITLE_CLS =
+  'font-bold text-base text-gray-900 dark:text-white mb-2 leading-snug'
+const CARD_TEXT_CLS =
+  'text-sm text-gray-600 dark:text-gray-400 leading-relaxed'
+
+export default function Features() {
+  const deal = [
     { t: siteConfig('LANDING_FEATURES_CARD_1_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_1_P', null, CONFIG) },
     { t: siteConfig('LANDING_FEATURES_CARD_2_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_2_P', null, CONFIG) },
     { t: siteConfig('LANDING_FEATURES_CARD_3_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_3_P', null, CONFIG) },
     { t: siteConfig('LANDING_FEATURES_CARD_4_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_4_P', null, CONFIG) },
     { t: siteConfig('LANDING_FEATURES_CARD_5_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_5_P', null, CONFIG) },
-    { t: siteConfig('LANDING_FEATURES_CARD_6_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_6_P', null, CONFIG) },
-    { t: siteConfig('LANDING_FEATURES_CARD_7_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_7_P', null, CONFIG) },
-    { t: siteConfig('LANDING_FEATURES_CARD_8_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_8_P', null, CONFIG) }
+    { t: siteConfig('LANDING_FEATURES_CARD_6_TITLE', null, CONFIG), p: siteConfig('LANDING_FEATURES_CARD_6_P', null, CONFIG) }
   ].filter(c => c.t)
 
-  const header1 = siteConfig('LANDING_FEATURES_HEADER_1', null, CONFIG)
-  const header1p = siteConfig('LANDING_FEATURES_HEADER_1_P', null, CONFIG)
-  const header2 = siteConfig('LANDING_FEATURES_HEADER_2', null, CONFIG)
-  const header2p = siteConfig('LANDING_FEATURES_HEADER_2_P', null, CONFIG)
+  const content = [
+    { t: siteConfig('LANDING_CONTENT_CARD_1_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_1_P', null, CONFIG) },
+    { t: siteConfig('LANDING_CONTENT_CARD_2_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_2_P', null, CONFIG) },
+    { t: siteConfig('LANDING_CONTENT_CARD_3_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_3_P', null, CONFIG) },
+    { t: siteConfig('LANDING_CONTENT_CARD_4_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_4_P', null, CONFIG) },
+    { t: siteConfig('LANDING_CONTENT_CARD_5_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_5_P', null, CONFIG) },
+    { t: siteConfig('LANDING_CONTENT_CARD_6_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_6_P', null, CONFIG) }
+  ].filter(c => c.t)
+
+  const dealHeader = siteConfig('LANDING_FEATURES_HEADER_1', null, CONFIG)
+  const dealHeaderP = siteConfig('LANDING_FEATURES_HEADER_1_P', null, CONFIG)
+  const contentHeader = siteConfig('LANDING_CONTENT_HEADER', null, CONFIG)
+  const contentHeaderP = siteConfig('LANDING_CONTENT_HEADER_P', null, CONFIG)
+  const footTitle = siteConfig('LANDING_FEATURES_HEADER_2', null, CONFIG)
+  const footText = siteConfig('LANDING_FEATURES_HEADER_2_P', null, CONFIG)
 
   return (
     <section className='relative'>
       <div className='absolute inset-0 bg-gray-100 dark:bg-black pointer-events-none' aria-hidden='true'></div>
 
       <div className='relative max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20'>
-
-        {/* 区块标题 */}
-        {(header1 || header1p) && (
-          <div className='max-w-3xl mx-auto text-center pb-10 md:pb-14'>
-            <h2 className='h2 mb-4 dark:text-white'>{header1}</h2>
-            <p className='text-xl text-gray-600 dark:text-gray-400 leading-relaxed' dangerouslySetInnerHTML={{ __html: header1p }}></p>
+        {/* 块一：推进客户成交的技能 */}
+        {(dealHeader || dealHeaderP) && (
+          <div className='max-w-3xl mx-auto text-center pb-8 md:pb-10'>
+            <h2 className='h2 mb-3 dark:text-white'>{dealHeader}</h2>
+            <p
+              className='text-lg text-gray-600 dark:text-gray-400 leading-relaxed'
+              dangerouslySetInnerHTML={{ __html: dealHeaderP }}
+            ></p>
           </div>
         )}
-
-        {/* 核心三件套：答疑 · 话术 · 引导（决定成交的三件事，层级最高） */}
-        {cards.length > 0 && (
-          <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-4 mb-4'>
-            {cards.slice(0, 3).map((c, i) => (
-              <div key={i} className='bg-white dark:bg-gray-900 rounded-lg border-2 border-blue-200 dark:border-blue-900 p-6 shadow-sm'>
-                <div className='font-bold text-lg text-gray-900 dark:text-white mb-2 leading-snug'>{c.t}</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400 leading-relaxed'>{c.p}</div>
+        {deal.length > 0 && (
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            {deal.map((c, i) => (
+              <div key={i} className={CARD_CLS}>
+                <div className={CARD_TITLE_CLS}>{c.t}</div>
+                <div className={CARD_TEXT_CLS}>{c.p}</div>
               </div>
             ))}
           </div>
         )}
 
-        {/* 其余能力：日常必备 */}
-        {cards.length > 3 && (
-          <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'>
-            {cards.slice(3).map((c, i) => (
-              <div key={i} className='bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm'>
-                <div className='font-bold text-gray-900 dark:text-white mb-2 leading-snug'>{c.t}</div>
-                <div className='text-sm text-gray-600 dark:text-gray-400 leading-relaxed'>{c.p}</div>
+        {/* 分隔 */}
+        <div className='my-10 md:my-14 border-t border-gray-200 dark:border-gray-800'></div>
+
+        {/* 块二：做内容的技能 */}
+        {(contentHeader || contentHeaderP) && (
+          <div className='max-w-3xl mx-auto text-center pb-8 md:pb-10'>
+            <h2 className='h2 mb-3 dark:text-white'>{contentHeader}</h2>
+            <p
+              className='text-lg text-gray-600 dark:text-gray-400 leading-relaxed'
+              dangerouslySetInnerHTML={{ __html: contentHeaderP }}
+            ></p>
+          </div>
+        )}
+        {content.length > 0 && (
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+            {content.map((c, i) => (
+              <div key={i} className={CARD_CLS}>
+                <div className={CARD_TITLE_CLS}>{c.t}</div>
+                <div className={CARD_TEXT_CLS}>{c.p}</div>
               </div>
             ))}
           </div>
         )}
 
-        {/* 通用能力补充条 */}
-        {(header2 || header2p) && (
+        {/* 底部说明条 */}
+        {(footTitle || footText) && (
           <div className='mt-8 text-center bg-white dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg px-6 py-5'>
-            <div className='font-bold text-lg text-gray-900 dark:text-white mb-1'>{header2}</div>
-            <p className='text-gray-600 dark:text-gray-400'>{header2p}</p>
+            <div className='font-bold text-base text-gray-900 dark:text-white mb-1'>{footTitle}</div>
+            <p className='text-sm text-gray-600 dark:text-gray-400'>{footText}</p>
           </div>
         )}
-
       </div>
     </section>
   )
