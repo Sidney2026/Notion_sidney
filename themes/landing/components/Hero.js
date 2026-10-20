@@ -26,6 +26,7 @@ export default function Hero() {
 
   const tag = siteConfig('LANDING_HERO_TAG', null, CONFIG)
   const vsTitle = siteConfig('LANDING_HERO_VS_TITLE', null, CONFIG)
+  const vsP = siteConfig('LANDING_HERO_VS_P', null, CONFIG)
 
   return (
         <section className="relative">
@@ -73,11 +74,15 @@ export default function Hero() {
                             {vsTitle && (
                                 <div className="text-center mb-5">
                                     <h2 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white">{vsTitle}</h2>
+                                    {vsP && (
+                                        <p className="mt-2 text-sm sm:text-base text-gray-500 dark:text-gray-400">{vsP}</p>
+                                    )}
                                 </div>
                             )}
                             <div className="grid sm:grid-cols-2 gap-4">
                                 {vs.map((c, i) => (
                                     <div key={i} className="bg-white/80 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-5 shadow-sm text-left">
+                                        <div className="text-xs font-extrabold tracking-widest text-blue-600 mb-1.5">{String(i + 1).padStart(2, '0')}</div>
                                         <div className="font-bold text-gray-900 dark:text-white mb-1.5 leading-snug">{c.t}</div>
                                         <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{c.p}</div>
                                     </div>

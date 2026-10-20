@@ -36,8 +36,10 @@ export default function Features() {
     { t: siteConfig('LANDING_CONTENT_CARD_6_TITLE', null, CONFIG), p: siteConfig('LANDING_CONTENT_CARD_6_P', null, CONFIG) }
   ].filter(c => c.t)
 
+  const dealKicker = siteConfig('LANDING_FEATURES_EYEBROW_1', null, CONFIG)
   const dealHeader = siteConfig('LANDING_FEATURES_HEADER_1', null, CONFIG)
   const dealHeaderP = siteConfig('LANDING_FEATURES_HEADER_1_P', null, CONFIG)
+  const contentKicker = siteConfig('LANDING_CONTENT_EYEBROW', null, CONFIG)
   const contentHeader = siteConfig('LANDING_CONTENT_HEADER', null, CONFIG)
   const contentHeaderP = siteConfig('LANDING_CONTENT_HEADER_P', null, CONFIG)
   const footTitle = siteConfig('LANDING_FEATURES_HEADER_2', null, CONFIG)
@@ -52,8 +54,13 @@ export default function Features() {
 
       <div className='relative max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20'>
         {/* 块一：推进客户成交的技能 */}
-        {(dealHeader || dealHeaderP) && (
+        {(dealKicker || dealHeader || dealHeaderP) && (
           <div className='max-w-3xl mx-auto text-center pb-8 md:pb-10'>
+            {dealKicker && (
+              <div className='mb-3'>
+                <span className='inline-block text-[11px] font-extrabold tracking-[0.2em] text-blue-600 bg-blue-50 dark:bg-gray-800 border border-blue-100 dark:border-gray-700 rounded-full px-3 py-1'>{dealKicker}</span>
+              </div>
+            )}
             <h2 className='h2 mb-3 dark:text-white'>{dealHeader}</h2>
             <p
               className='text-lg text-gray-600 dark:text-gray-400 leading-relaxed'
@@ -75,8 +82,13 @@ export default function Features() {
         <div className='my-10 md:my-14 border-t border-gray-200 dark:border-gray-800'></div>
 
         {/* 块二：做内容的技能 */}
-        {(contentHeader || contentHeaderP) && (
+        {(contentKicker || contentHeader || contentHeaderP) && (
           <div className='max-w-3xl mx-auto text-center pb-8 md:pb-10'>
+            {contentKicker && (
+              <div className='mb-3'>
+                <span className='inline-block text-[11px] font-extrabold tracking-[0.2em] text-blue-600 bg-blue-50 dark:bg-gray-800 border border-blue-100 dark:border-gray-700 rounded-full px-3 py-1'>{contentKicker}</span>
+              </div>
+            )}
             <h2 className='h2 mb-3 dark:text-white'>{contentHeader}</h2>
             <p
               className='text-lg text-gray-600 dark:text-gray-400 leading-relaxed'
