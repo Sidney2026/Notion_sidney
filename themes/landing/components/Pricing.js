@@ -25,6 +25,7 @@ const PriceBlock = ({ price, old, badge, big }) => (
 
 export const Pricing = (props) => {
   const badge = siteConfig('LANDING_PRICING_BADGE', null, CONFIG)
+  const note = siteConfig('LANDING_PRICING_NOTE', null, CONFIG)
   return <div id="pricing" className="w-full mx-auto bg-white dark:bg-black px-5 py-10 text-gray-800 mb-10">
     <div className="text-center max-w-xl mx-auto">
         <h1 className="text-5xl md:text-5xl font-bold mb-5 dark:text-white">{siteConfig('LANDING_PRICING_TITLE', null, CONFIG)}</h1>
@@ -80,5 +81,8 @@ export const Pricing = (props) => {
             </SmartLink>
         </div>
     </div>
+    {note && (
+      <p className="text-center text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mt-6 px-4">{note}</p>
+    )}
 </div>
 }

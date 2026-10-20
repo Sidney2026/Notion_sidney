@@ -101,7 +101,9 @@ export default function PricingTable () {
           </tbody>
         </table>
       </div>
-      <p className='text-center text-xs text-gray-400 mt-3'>核心港险功能三档完全一样，不做阉割；差别只在额度、新功能与服务强度。</p>
+      <p className='text-center text-xs text-gray-400 mt-3'>
+        {siteConfig('LANDING_PRICING_TABLE_NOTE', '成交技能三档完全一样，不做阉割；差别在是否含内容技能、积分多少、新功能与服务强度。', CONFIG)}
+      </p>
     </div>
   )
 }
