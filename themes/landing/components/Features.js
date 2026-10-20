@@ -62,7 +62,7 @@ export default function Features() {
           </div>
         )}
         {deal.length > 0 && (
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch auto-rows-fr'>
             {deal.map((c, i) => (
               <div key={i} className={isWide(deal, i) ? CARD_CLS + ' lg:col-span-3' : CARD_CLS}>
                 <div className={CARD_TITLE_CLS}>{c.t}</div>
@@ -85,7 +85,7 @@ export default function Features() {
           </div>
         )}
         {content.length > 0 && (
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch auto-rows-fr'>
             {content.map((c, i) => (
               <div key={i} className={isWide(content, i) ? CARD_CLS + ' lg:col-span-3' : CARD_CLS}>
                 <div className={CARD_TITLE_CLS}>{c.t}</div>
