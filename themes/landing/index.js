@@ -12,6 +12,7 @@ import { siteConfig } from '@/lib/config'
 import { isBrowser } from '@/lib/utils'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import Examples from './components/Examples'
 import Features from './components/Features'
 import FeaturesBlocks from './components/FeaturesBlocks'
 import Footer from './components/Footer'
@@ -61,6 +62,7 @@ const LayoutIndex = props => {
     <>
       <Hero />
       <Features />
+      <Examples />
       <FeaturesBlocks />
       {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
       <Pricing />
