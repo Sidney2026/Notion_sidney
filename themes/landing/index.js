@@ -75,7 +75,7 @@ const LayoutIndex = props => {
             className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-5 py-4 text-sm text-gray-700 dark:text-gray-300 hover:border-blue-300 transition'>
             <span>
               <b className='text-gray-900 dark:text-white'>已经是客户？</b>{' '}
-              推荐同行，白用一个月 —— 报你的名字就行
+              邀请朋友，赠送一个月 —— 报你的名字就行
             </span>
             <span className='text-blue-600 font-semibold shrink-0'>看推荐奖励 →</span>
           </SmartLink>
