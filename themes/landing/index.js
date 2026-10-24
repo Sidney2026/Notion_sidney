@@ -18,6 +18,7 @@ import FeaturesBlocks from './components/FeaturesBlocks'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import PainPoints from './components/PainPoints'
 import Newsletter from './components/Newsletter'
 import { Pricing } from './components/Pricing'
 import PricingTable from './components/PricingTable'
@@ -61,6 +62,7 @@ const LayoutIndex = props => {
   return (
     <>
       <Hero />
+      <PainPoints />
       <Features />
       <FeaturesBlocks />
       {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
