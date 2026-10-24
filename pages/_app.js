@@ -52,7 +52,12 @@ const MyApp = ({ Component, pageProps }) => {
   )
 
   const enableClerk = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-  const content = (
+  const bare = route.pathname === '/referral'
+  const content = bare ? (
+    <GlobalContextProvider {...pageProps}>
+      <Component {...pageProps} />
+    </GlobalContextProvider>
+  ) : (
     <GlobalContextProvider {...pageProps}>
       <GLayout {...pageProps}>
         <SEO {...pageProps} />
