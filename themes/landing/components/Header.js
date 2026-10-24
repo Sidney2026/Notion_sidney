@@ -39,6 +39,11 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
+                <SmartLink href='/referral' className="font-medium hover:font-bold text-gray-600 hover:text-gray-900 dark:text-gray-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">
+                  <div>邀请奖励</div>
+                </SmartLink>
+              </li>
+              <li>
                 <SmartLink href={siteConfig('LANDING_HEADER_BUTTON_1_URL', null, CONFIG)} target='_blank' className="font-medium hover:font-bold text-gray-600 hover:text-gray-900 dark:text-gray-400 px-5 py-3 flex items-center transition duration-150 ease-in-out">
                    <div>{siteConfig('LANDING_HEADER_BUTTON_1_TITLE', null, CONFIG)}</div>
                 </SmartLink>
