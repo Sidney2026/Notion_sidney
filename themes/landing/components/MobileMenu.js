@@ -67,13 +67,18 @@ export default function MobileMenu() {
         >
           <ul className="px-5 py-2">
             <li>
-              <SmartLink href='/referral' className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
-                <div>邀请奖励</div>
+              <SmartLink href='/examples' className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+                <div>使用示例</div>
               </SmartLink>
             </li>
             <li>
               <SmartLink href={siteConfig('LANDING_HEADER_BUTTON_1_URL', null, CONFIG)} className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
                 <div>{siteConfig('LANDING_HEADER_BUTTON_1_TITLE', null, CONFIG)}</div>
+              </SmartLink>
+            </li>
+            <li>
+              <SmartLink href='/referral' className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>
+                <div>邀请奖励</div>
               </SmartLink>
             </li>
             <li>
