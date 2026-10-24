@@ -1,5 +1,5 @@
 import { siteConfig } from '@/lib/config'
-import CONFIG from './config'
+import CONFIG from '../config'
 
 const GROUPS = [1, 2, 3]
 
