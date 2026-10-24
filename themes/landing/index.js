@@ -65,20 +65,16 @@ const LayoutIndex = props => {
       <FeaturesBlocks />
       {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
       <Pricing />
-      <PricingTable />
-      <section className='bg-white dark:bg-black'>
-        <div className='max-w-6xl mx-auto px-4 sm:px-6 pb-2'>
-          <SmartLink
-            href='/referral'
-            className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-5 py-4 text-sm text-gray-700 dark:text-gray-300 hover:border-blue-300 transition'>
-            <span>
-              <b className='text-gray-900 dark:text-white'>已经是客户？</b>{' '}
-              邀请朋友，赠送一个月 —— 报你的名字就行
-            </span>
-            <span className='text-blue-600 font-semibold shrink-0'>看推荐奖励 →</span>
-          </SmartLink>
+      {siteConfig('LANDING_PROMO_TEXT', null, CONFIG) && (
+        <div className='bg-white dark:bg-black'>
+          <div className='max-w-6xl mx-auto px-4 sm:px-6 pb-6'>
+            <p className='mx-auto max-w-3xl text-center text-sm font-semibold text-amber-900 dark:text-amber-200 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 rounded-full px-4 py-2.5'>
+              {siteConfig('LANDING_PROMO_TEXT', null, CONFIG)}
+            </p>
+          </div>
         </div>
-      </section>
+      )}
+      <PricingTable />
       <Newsletter />
     </>
   )
