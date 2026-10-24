@@ -7,6 +7,7 @@
  * 3. 您可在此网站找到更多喜欢的组件 https://www.tailwind-kit.com/
  */
 import Loading from '@/components/Loading'
+import SmartLink from '@/components/SmartLink'
 import NotionPage from '@/components/NotionPage'
 import { siteConfig } from '@/lib/config'
 import { isBrowser } from '@/lib/utils'
@@ -67,6 +68,19 @@ const LayoutIndex = props => {
       {/* 案例位：等 May 授权后再开启 <Testimonials /> */}
       <Pricing />
       <PricingTable />
+      <section className='bg-white dark:bg-black'>
+        <div className='max-w-6xl mx-auto px-4 sm:px-6 pb-2'>
+          <SmartLink
+            href='/referral'
+            className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-5 py-4 text-sm text-gray-700 dark:text-gray-300 hover:border-blue-300 transition'>
+            <span>
+              <b className='text-gray-900 dark:text-white'>已经是客户？</b>{' '}
+              推荐同行，白用一个月 —— 报你的名字就行
+            </span>
+            <span className='text-blue-600 font-semibold shrink-0'>看推荐奖励 →</span>
+          </SmartLink>
+        </div>
+      </section>
       <Newsletter />
     </>
   )
