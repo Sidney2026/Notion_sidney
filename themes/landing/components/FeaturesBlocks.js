@@ -1,29 +1,41 @@
 import CONFIG from '../config'
 import { siteConfig } from '@/lib/config'
 
+/**
+ * 买之前，先说清 —— 四条交易条款
+ * 只渲染有内容的条目（1..6），便于增删而不动代码。
+ */
 export default function FeaturesBlocks() {
+  const items = [1, 2, 3, 4, 5, 6]
+    .map(i => ({
+      i,
+      t: siteConfig(`LANDING_FEATURES_BLOCK_${i}_TITLE`, null, CONFIG),
+      p: siteConfig(`LANDING_FEATURES_BLOCK_${i}_P`, null, CONFIG)
+    }))
+    .filter(x => x.t)
+
+  if (items.length === 0) return null
+
   return (
-      <section className="relative">
+    <section className="relative">
 
-        {/* Section background (needs .relative class on parent and next sibling elements) */}
-        <div className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-900 dark:bg-black pointer-events-none" aria-hidden="true"></div>
-        <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
+      {/* Section background (needs .relative class on parent and next sibling elements) */}
+      <div className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-900 dark:bg-black pointer-events-none" aria-hidden="true"></div>
+      <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="py-12 md:py-20">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="py-12 md:py-20">
 
-            {/* Section header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-              <h2 className="h2 mb-4 dark:text-white">{siteConfig('LANDING_FEATURES_BLOCK_HEADER', null, CONFIG)}</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: siteConfig('LANDING_FEATURES_BLOCK_P', null, CONFIG) }}></p>
-            </div>
+          {/* Section header */}
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+            <h2 className="h2 mb-4 dark:text-white">{siteConfig('LANDING_FEATURES_BLOCK_HEADER', null, CONFIG)}</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">{siteConfig('LANDING_FEATURES_BLOCK_P', null, CONFIG)}</p>
+          </div>
 
-            {/* Items */}
-            <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch auto-rows-fr md:max-w-2xl lg:max-w-none">
-
-              {/* 1st item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          {/* Items */}
+          <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 items-stretch auto-rows-fr md:max-w-3xl">
+              <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
+<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
                     <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
@@ -34,13 +46,12 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_1_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_1_P', null, CONFIG)}</p>
+                <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_1_TITLE', null, CONFIG)}</h4>
+                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_1_P', null, CONFIG)}</p>
               </div>
 
-              {/* 2nd item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
+<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
                     <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                     <g strokeWidth="2" transform="translate(19.429 20.571)">
@@ -50,13 +61,12 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_2_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_2_P', null, CONFIG)}</p>
+                <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_2_TITLE', null, CONFIG)}</h4>
+                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_2_P', null, CONFIG)}</p>
               </div>
 
-              {/* 3rd item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
+<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
                     <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
@@ -67,13 +77,12 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_3_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_3_P', null, CONFIG)}</p>
+                <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_3_TITLE', null, CONFIG)}</h4>
+                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_3_P', null, CONFIG)}</p>
               </div>
 
-              {/* 4th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
+<svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
                     <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
@@ -84,45 +93,13 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_4_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_4_P', null, CONFIG)}</p>
+                <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_4_TITLE', null, CONFIG)}</h4>
+                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_4_P', null, CONFIG)}</p>
               </div>
-
-              {/* 5th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                    <g strokeWidth="2">
-                      <path className="stroke-current text-white" d="M19.429 32a12.571 12.571 0 0021.46 8.89L23.111 23.11A12.528 12.528 0 0019.429 32z" />
-                      <path className="stroke-current text-blue-300" d="M32 19.429c6.943 0 12.571 5.628 12.571 12.571M32 24a8 8 0 018 8" />
-                      <path className="stroke-current text-white" d="M34.286 29.714L32 32" />
-                    </g>
-                  </g>
-                </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_5_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_5_P', null, CONFIG)}</p>
-              </div>
-
-              {/* 6th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded-md shadow-xl border h-full">
-                <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                    <g strokeWidth="2" strokeLinecap="square">
-                      <path className="stroke-current text-white" d="M29.714 40.358l-4.777 2.51 1.349-7.865-5.715-5.57 7.898-1.147L32 21.13l3.531 7.155 7.898 1.147L40 32.775" />
-                      <path className="stroke-current text-blue-300" d="M44.571 43.429H34.286M44.571 37.714H34.286" />
-                    </g>
-                  </g>
-                </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">{siteConfig('LANDING_FEATURES_BLOCK_6_TITLE', null, CONFIG)}</h4>
-                <p className="text-gray-600 text-center">{siteConfig('LANDING_FEATURES_BLOCK_6_P', null, CONFIG)}</p>
-              </div>
-
-            </div>
-
           </div>
+
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
