@@ -55,6 +55,9 @@ export default function Footer () {
               <li className='mb-2'>
                 <SmartLink href='/#contact' className='text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out'>联系方式</SmartLink>
               </li>
+              <li className='mb-2'>
+                <SmartLink href='/referral' className='text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out'>老客户推荐奖励</SmartLink>
+              </li>
             </ul>
           </div>
 
