@@ -47,7 +47,7 @@ export default function FeaturesBlocks() {
                   </g>
                 </svg>
                 <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_1_TITLE', null, CONFIG)}</h4>
-                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_1_P', null, CONFIG)}</p>
+                <p className='text-gray-600 dark:text-gray-400 text-center' dangerouslySetInnerHTML={{ __html: siteConfig('LANDING_FEATURES_BLOCK_1_P', null, CONFIG) }}></p>
               </div>
 
               <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
@@ -62,7 +62,7 @@ export default function FeaturesBlocks() {
                   </g>
                 </svg>
                 <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_2_TITLE', null, CONFIG)}</h4>
-                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_2_P', null, CONFIG)}</p>
+                <p className='text-gray-600 dark:text-gray-400 text-center' dangerouslySetInnerHTML={{ __html: siteConfig('LANDING_FEATURES_BLOCK_2_P', null, CONFIG) }}></p>
               </div>
 
               <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
@@ -78,7 +78,7 @@ export default function FeaturesBlocks() {
                   </g>
                 </svg>
                 <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_3_TITLE', null, CONFIG)}</h4>
-                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_3_P', null, CONFIG)}</p>
+                <p className='text-gray-600 dark:text-gray-400 text-center' dangerouslySetInnerHTML={{ __html: siteConfig('LANDING_FEATURES_BLOCK_3_P', null, CONFIG) }}></p>
               </div>
 
               <div className='relative flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-md shadow-xl border border-gray-100 dark:border-gray-800 h-full'>
@@ -94,7 +94,7 @@ export default function FeaturesBlocks() {
                   </g>
                 </svg>
                 <h4 className='text-xl font-bold leading-snug tracking-tight mb-1 text-center text-gray-900 dark:text-white'>{siteConfig('LANDING_FEATURES_BLOCK_4_TITLE', null, CONFIG)}</h4>
-                <p className='text-gray-600 dark:text-gray-400 text-center'>{siteConfig('LANDING_FEATURES_BLOCK_4_P', null, CONFIG)}</p>
+                <p className='text-gray-600 dark:text-gray-400 text-center' dangerouslySetInnerHTML={{ __html: siteConfig('LANDING_FEATURES_BLOCK_4_P', null, CONFIG) }}></p>
               </div>
           </div>
 
