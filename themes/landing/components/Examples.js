@@ -124,6 +124,14 @@ export default function Examples() {
             </div>
           ))}
         </div>
+
+        <div className='mt-8 text-center'>
+          <a
+            href='/examples'
+            className='inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700'>
+            看全部 12 个场景 →
+          </a>
+        </div>
       </div>
     </section>
   )
